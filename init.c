@@ -1,5 +1,8 @@
 #include "defs.h"
 
+int Sq120ToSq64[BRD_SQ_NUM];
+int Sq64ToSq120[64];
+
 void InitSq120To64(){
 	int index = 0;
 	int file = FILE_A;
