@@ -1,5 +1,21 @@
 #ifndef DEFS_H
 #define DEFS_H
+#include <stdlib.h>
+
+
+#define DEBUG
+#ifndef DEBUG
+#define ASSERT(n)
+#else
+#define ASSERT(n) \
+if(!(n)) { \
+printf("%s - Failed\n",#n);\
+printf("On %s\n",__DATE__);\
+printf("At %s\n",__TIME__);\
+printf("In File %s\n",__FILE__);\
+printf("At Line %d\n",__LINE__);\
+exit(1);}
+#endif
 
 typedef unsigned long long U64;
 
@@ -56,6 +72,10 @@ typedef struct {
 	int minPce[3]; // # bishop / knight on board
 	
 	S_UNDO history[MAXGAMEMOVES];
+	// piece list
+	int pList[13][10];
+
+
 	
 } S_BOARD;
 
